@@ -1,0 +1,10 @@
+Buildfile: D:\Users\aramlawi\Documents\Mendix\SFTP Module Update M5-main_2\deployment\build_core.xml
+
+deploy:
+    [unzip] Expanding: C:\Program Files\Mendix\6.8.1\modeler\deployment.mxz into D:\Users\aramlawi\Documents\Mendix\SFTP Module Update M5-main_2\deployment
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+
+
+

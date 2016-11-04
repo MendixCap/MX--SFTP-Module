@@ -1,0 +1,9 @@
+Buildfile: D:\Users\aramlawi\Documents\Mendix\SFTP Module Update M5-main_2\deployment\build_core.xml
+
+clean:
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+
+
+

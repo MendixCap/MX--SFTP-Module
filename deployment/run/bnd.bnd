@@ -1,0 +1,7 @@
+Private-Package: system, com.mendix.core, administration.proxies, administration.proxies.microflows, com.mendix.core, myfirstmodule.proxies.microflows, sftpconnection.actions, sftpconnection.helpers, sftpconnection.proxies, sftpconnection.proxies.constants, sftpconnection.proxies.microflows, system.actions, system.proxies, system.proxies.microflows
+Import-Package: *;resolution:=optional
+Service-Component: *
+Include-Resource: ../../userlib/;recursive:=true
+Bundle-ClassPath: .,commons-io-2.4.jar, jsch-0.1.53.jar
+Bundle-Name: SFTP_Module_Update_M5_main_2
+Bundle-SymbolicName: project

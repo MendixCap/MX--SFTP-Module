@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: i18n
+Bundle-SymbolicName: i18n
+Bundle-Version: 0
+Created-By: 1.6.0_27 (Sun Microsystems Inc.)
+Fragment-Host: mxruntime
+Include-Resource: {translations.properties}, {translations_en_US.properties}
+Private-Package: .
