@@ -10,8 +10,6 @@
 package sftpconnection.actions;
 
 import com.jcraft.jsch.Session;
-import com.mendix.core.session.UserSession;
-import sftpconnection.helpers.HandleFileSftp;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.webui.CustomJavaAction;
 
