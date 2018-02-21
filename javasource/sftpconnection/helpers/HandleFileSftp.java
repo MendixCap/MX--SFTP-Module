@@ -37,6 +37,7 @@ import com.jcraft.jsch.SftpATTRS;
 import com.jcraft.jsch.SftpException;
 import com.mendix.core.Core;
 import com.mendix.core.CoreException;
+import com.mendix.logging.ILogNode;
 import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
@@ -44,6 +45,14 @@ import com.mendix.systemwideinterfaces.core.IMendixObject;
 public class HandleFileSftp {
 	
 	public static HashMap<String, Session> userSession = new HashMap<String, Session>();
+
+	private static MendixLogger mxLogger;
+	static ILogNode logger = Core.getLogger("SFTP module");
+	
+	static {
+		mxLogger = new MendixLogger();
+		JSch.setLogger(mxLogger);
+	}
 	
 	
 	public static ChannelSftp createSFTPChannel(Session session) throws JSchException {
@@ -226,6 +235,7 @@ public class HandleFileSftp {
 		String remoteSource = sftpConfiguration.getRemoteSourceFolder(context);
 		
 		Session session = createSession(sftpConfiguration, context);
+		session.connect();
 		ChannelSftp sftpChannel = createSFTPChannel(session);
 
 		try {
@@ -365,5 +375,36 @@ public class HandleFileSftp {
 	filePublicKey.delete();
 	
 	return true;
+	}
+	
+	public static class MendixLogger implements com.jcraft.jsch.Logger {
+
+			
+		@Override
+		public boolean isEnabled(int arg0) {
+			return true;
+		}
+
+		@Override
+		public void log(int level, String message) {
+			switch (level) {
+			case DEBUG:
+				logger.trace(message);
+				break;
+			case INFO:
+				logger.debug(message);
+				break;
+			case WARN:
+				logger.warn(message);
+				break;
+			case ERROR:
+				logger.error(message);
+				break;
+			case FATAL:
+				logger.critical(message);
+				break;
+			}
+		}
+		
 	}
 }
