@@ -130,9 +130,7 @@ public class HandleFileSftp {
 
 		JSch jsch = new JSch();
 		java.util.Properties config = new java.util.Properties();
-	
-		
-		
+		config.put("PreferredAuthentications", "publickey,password"); // this setting forces to use only (by the module) supported authentication methods and avoids timeouts when trying others
 		
 		if (!sftpConfiguration.getStrictHostkeyChecking()) {
 			config.put("StrictHostKeyChecking", "no");
